@@ -1,10 +1,11 @@
 import java.lang.Math;
 
+// sum of numbers that equal to the n th power of digits with x digits
 public class Euler30 {
 
     public static final int POWER = 5;
-
-    // sum of number that equal to the fifth power of digits
+    public static final int DIGITS = 5
+    
     public static void main(String args[]) {
         Euler30 e = new Euler30();
         e.answer();
@@ -14,11 +15,13 @@ public class Euler30 {
         // }
     }
 
-
+    // calcultes the upper limit for the numbers
     public int calcLimit(int power, int digits) {
         return (int)Math.pow(9, power) * digits;
     }
 
+    // breaks down a number to an array of digits
+    // 178 = 1, 7, 8
     public int[] getDigits(int number) {
         int digits = 0;
         while(number / Math.pow(10, digits) > 1 ) {
@@ -32,6 +35,7 @@ public class Euler30 {
         return num;
     }
 
+    // calculate the sum of numbers in the array to n th power
     public int sumOfDigitsTothePower(int digits[], int power) {
         int sum = 0;
         for(int i=0; i < digits.length; i++) {
@@ -41,7 +45,7 @@ public class Euler30 {
     }
 
     public void answer() {
-        int limit = this.calcLimit(POWER, 8);
+        int limit = this.calcLimit(POWER, DIGITS);
         int sum = 0;
         System.out.println("Limit : " + limit);
         for(int i = 10; i < limit; i++) {
